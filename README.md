@@ -2,7 +2,16 @@
 
 This is a Yeoman generator for apps that follow the Tokbox style guidelines and best practises.
 
-## What does it do for me
+### Usage
+
+```
+mkdir appName
+cd appName
+yo tok appName
+```
+
+
+### What does it do for me
 
 It will generate apps with the following:
 * linting and code style checking via ESLint
@@ -15,7 +24,7 @@ It will generate apps with the following:
 * a package.json file containing all the common essentials
 
 
-## What it doesn't do (yet)
+### What it doesn't do (yet)
 
 * anything involving Karma or Browserify, so it's not browser friendly yet
 * it doesn't have strong guidelines for how you build your final package, except that you should use Gulp as your task system
