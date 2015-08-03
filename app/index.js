@@ -1,7 +1,9 @@
 'use strict';
 var generators = require('yeoman-generator');
+var exec = require('child_process').exec;
 var mkdirp = require('mkdirp');
 var fs = require('fs-extra');
+var chalk = require('chalk');
 
 function copyDir(fromPath, toPath, done) {
   fs.copy(fromPath, toPath, function(err) {
@@ -37,6 +39,33 @@ module.exports = generators.Base.extend({
       this.destinationPath(toPath),
       this.async()
     );
+  },
+
+  initializing: {
+    git: function() {
+      var done = this.async();
+
+      this.log('\n\nInitializing Git repository. If this fails, try running ' +
+               chalk.yellow.bold('git init') +
+               ' and make a first commit manually');
+
+      this.spawnCommand('git', ['init'])
+        .on('error', done)
+        .on('exit', function(err) {
+          if (err === 127) {
+            this.log('Could not find the ' + chalk.yellow.bold('git') + ' command. Make sure Git is installed on this machine');
+            return;
+          }
+
+          this.log(chalk.green('complete') + ' Git repository has been setup');
+
+          if (err !== 0) {
+            this.log(chalk.red('Git exited with ' + err));
+          }
+
+          done();
+        }.bind(this));
+    }
   },
 
   writing: {
@@ -94,12 +123,25 @@ module.exports = generators.Base.extend({
       );
     },
 
+    license: function() {
+      this.fs.copy(
+        this.templatePath('LICENSE'),
+        this.destinationPath('LICENSE')
+      );
+    },
+
     testing: function() {
       this._copyDir('tests', 'tests');
     },
 
-    jsdoc: function() {
-      this._copyDir('jsdoc', 'jsdoc');
+    doc: function() {
+      this.fs.copyTpl(
+        this.templatePath('docs/config.json'),
+        this.destinationPath('docs/config.json'),
+        {
+          appName: this.appname
+        }
+      );
     },
 
     misc: function() {
