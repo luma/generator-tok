@@ -21,8 +21,7 @@ module.exports = generators.Base.extend({
     generators.Base.apply(this, arguments);
 
     this.argument('appname', { type: String, required: true });
-    // And you can then access it later on this way; e.g. CamelCased
-    // this.appname = _.camelCase(this.appname);
+    this.appName = this.appName || 'Untitled';
 
 
     // add some flags
@@ -117,9 +116,12 @@ module.exports = generators.Base.extend({
     },
 
     app: function() {
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('app.js'),
-        this.destinationPath('app.js')
+        this.destinationPath('app.js'),
+        {
+          appName: this.appname
+        }
       );
     },
 

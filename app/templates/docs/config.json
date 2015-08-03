@@ -1,6 +1,6 @@
 {
     "templates": {
-        "systemName"            : "<%= appName || 'Untitled' %>",
+        "systemName"            : "<%= appName %>",
         "footer"                : "",
         "copyright"             :  "© 2015 TokBox Inc.",
         "navType"               : "vertical",
