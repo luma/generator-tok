@@ -1,6 +1,6 @@
 {
   "name": "<%= appName %>",
-  "private": <%= (!!public).toString() %>,
+  "private": <%= isPrivateModule %>,
   "engines": {
     "node": ">=0.12.0"
   },

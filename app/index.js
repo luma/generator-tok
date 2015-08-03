@@ -25,10 +25,10 @@ module.exports = generators.Base.extend({
 
 
     // add some flags
-    this.option('public', {
+    this.option('private', {
       type: Boolean,
-      defaults: false,
-      desc: 'Whether this should be a public NPM project'
+      defaults: true,
+      desc: 'Whether this should be a private NPM project'
     });
   },
 
@@ -73,12 +73,14 @@ module.exports = generators.Base.extend({
     },
 
     packageJSON: function() {
+      this.log('Generating a', this.options['private'] ? 'private' : 'public', 'NPM module');
+
       this.fs.copyTpl(
         this.templatePath('_package.json'),
         this.destinationPath('package.json'),
         {
           appName: this.appname,
-          'public': this.options['public']
+          isPrivateModule: this.options['private']
         }
       );
     },
@@ -112,6 +114,16 @@ module.exports = generators.Base.extend({
       this.fs.copy(
         this.templatePath('istanbul.yml'),
         this.destinationPath('.istanbul.yml')
+      );
+    },
+
+    readme: function() {
+      this.fs.copyTpl(
+        this.templatePath('README.md'),
+        this.destinationPath('README.md'),
+        {
+          appName: this.appname
+        }
       );
     },
 
