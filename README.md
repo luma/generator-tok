@@ -27,7 +27,7 @@ This will generate a private module by default. Use `yo tok appName --private=fa
 To see what tasks your new app has you can run `gulp help`.
 
 
-### What does it do for me
+### What does it do for me?
 
 It will generate apps with the following:
 * linting and code style checking via ESLint
