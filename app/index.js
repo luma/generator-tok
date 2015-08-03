@@ -3,8 +3,8 @@ var generators = require('yeoman-generator');
 var mkdirp = require('mkdirp');
 var fs = require('fs-extra');
 
-function copyDir(toPath, fromPath, done) {
-  fs.copy(toPath, fromPath, function(err) {
+function copyDir(fromPath, toPath, done) {
+  fs.copy(fromPath, toPath, function(err) {
     if (err) {
       throw new Error(err);
     }
@@ -22,6 +22,7 @@ module.exports = generators.Base.extend({
     // And you can then access it later on this way; e.g. CamelCased
     // this.appname = _.camelCase(this.appname);
 
+
     // add some flags
     this.option('public', {
       type: Boolean,
@@ -30,9 +31,17 @@ module.exports = generators.Base.extend({
     });
   },
 
+  _copyDir: function(fromPath, toPath) {
+    copyDir(
+      this.templatePath(fromPath),
+      this.destinationPath(toPath),
+      this.async()
+    );
+  },
+
   writing: {
     gulpfile: function() {
-      copyDir('gulpfile.js', 'gulpfile.js', this.async());
+      this._copyDir('gulpfile.js', 'gulpfile.js');
     },
 
     packageJSON: function() {
@@ -40,6 +49,7 @@ module.exports = generators.Base.extend({
         this.templatePath('_package.json'),
         this.destinationPath('package.json'),
         {
+          appName: this.appname,
           'public': this.options['public']
         }
       );
@@ -85,15 +95,19 @@ module.exports = generators.Base.extend({
     },
 
     testing: function() {
-      copyDir('tests', 'tests', this.async());
+      this._copyDir('tests', 'tests');
     },
 
     jsdoc: function() {
-      copyDir('jsdoc', 'jsdoc', this.async());
+      this._copyDir('jsdoc', 'jsdoc');
     },
 
     misc: function() {
       mkdirp('src/js');
     }
+  },
+
+  install: function() {
+    this.npmInstall();
   }
 });
