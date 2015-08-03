@@ -2,6 +2,18 @@
 
 This is a Yeoman generator for apps that follow the Tokbox style guidelines and best practises.
 
+### Installation
+
+Eventually I will push this to npm. But for you can install it using:
+
+```
+git clone https://github.com/luma/generator-tok.git
+cd generator-tok
+npm link
+```
+
+After that the `yo tok` generator should be available.
+
 ### Usage
 
 ```
@@ -11,6 +23,8 @@ yo tok appName
 ```
 
 This will generate a private module by default. Use `yo tok appName --private=false` to generate a public project.
+
+To see what tasks your new app has you can run `gulp help`.
 
 
 ### What does it do for me
