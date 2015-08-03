@@ -2,11 +2,12 @@
 var gulp = require('gulp');
 var displayHelp = require('gulp-display-help');
 
-var tasks = {
+var taskDescriptions = {
   'default': 'Lints the source and runs the tests',
   clean: 'removes all build artifacts',
   test: 'runs the tests and (optionally) generates coverage reports',
   lint: 'lints the source',
+  doc: 'generate docs for the project source',
   help: 'displays this help text'
 };
 
@@ -17,4 +18,4 @@ var flags = {
   '--coverage': 'Generate a coverage report'
 };
 
-gulp.task('help', gulp.tasks, displayHelp(tasks, [/* omit these tasks */],  flags));
+gulp.task('help', displayHelp(gulp.tasks, taskDescriptions, [/* omit these tasks */],  flags));
