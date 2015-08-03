@@ -1,10 +1,9 @@
 'use strict';
-
 var eslint = require('gulp-eslint');
 var gulp = require('gulp');
 var config = require('../config.js');
 
-gulp.task('eslint', function() {
+gulp.task('lint', function() {
   var stream = gulp.src(config.lint.src)
     .pipe(eslint())
     .pipe(eslint.format());
