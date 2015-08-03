@@ -10,6 +10,8 @@ cd appName
 yo tok appName
 ```
 
+This will generate a private module by default. Use `yo tok appName --private=false` to generate a public project.
+
 
 ### What does it do for me
 
