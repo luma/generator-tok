@@ -12,6 +12,7 @@
     "app"
   ],
   "dependencies": {
+    "fs-extra": "^0.22.1",
     "yeoman-generator": "^0.20.2"
   },
   "devDependencies": {
