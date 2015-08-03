@@ -19,9 +19,9 @@ module.exports = {
   jsdoc: {
     src: path.join(src, 'js/**/*.js'),
     readme: path.join(src, '../README.md'),
-    dest: './jsdoc/documentation/',
+    dest: './docs/documentation/',
     template: './node_modules/ink-docstrap/template',
-    configFile: 'jsdoc/confing.json'
+    configFile: 'docs/config.json'
   },
   lint: {
     src: [
