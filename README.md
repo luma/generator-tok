@@ -30,6 +30,7 @@ To see what tasks your new app has you can run `gulp help`.
 ### What does it do for me?
 
 It will generate apps with the following:
+* create a new (local) git repo in the cwd
 * linting and code style checking via [ESLint](http://eslint.org/)
 * testing via [Jasmine](http://jasmine.github.io/)
 * code coverage via [Istanbul](https://gotwarlost.github.io/istanbul/)
