@@ -1,6 +1,5 @@
 'use strict';
 var generators = require('yeoman-generator');
-var exec = require('child_process').exec;
 var mkdirp = require('mkdirp');
 var fs = require('fs-extra');
 var chalk = require('chalk');
