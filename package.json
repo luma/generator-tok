@@ -12,6 +12,7 @@
     "app"
   ],
   "dependencies": {
+    "bluebird": "^2.9.34",
     "chalk": "^1.1.0",
     "fs-extra": "^0.22.1",
     "mkdirp": "^0.5.1",

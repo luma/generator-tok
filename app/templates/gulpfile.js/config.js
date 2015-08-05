@@ -1,11 +1,14 @@
 'use strict';
 var path = require('path');
 var argv = require('yargs').argv;
+var karmaConfig = require('./karma_config');
+var pkg = require('../package.json');
 
 var dest = './build';
 var src = './src';
 
 var ENVIRONMENT = argv.env || process.env.env || 'development';
+var APP_NAME = pkg.name;
 
 module.exports = {
   environment: ENVIRONMENT,
@@ -29,7 +32,22 @@ module.exports = {
       'app.js'
     ]
   },
-  // @TODO what 'production' means in this context is not obvious. I.e. why are no other environments defined?
+  karma: karmaConfig,
+  browserify: {
+    // A separate bundle will be generated for each
+    // bundle config in the list below
+    debug: true, // debug mode for browserify (sourcemaps)
+    watch: false, // should we use watchify
+    bundleConfigs: [
+      {
+        entries: 'app.js',
+        dest: dest,
+        outputName: APP_NAME + '.js'
+      }
+    ]
+  },
+  // @TODO what 'production' means in this context is not obvious.
+  // I.e. why are no other environments defined?
   production: {
     jsSrc: path.join(dest, '/**/*.js'),
     dest: dest

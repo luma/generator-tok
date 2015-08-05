@@ -1,18 +1,7 @@
 'use strict';
 var generators = require('yeoman-generator');
 var mkdirp = require('mkdirp');
-var fs = require('fs-extra');
 var chalk = require('chalk');
-
-function copyDir(fromPath, toPath, done) {
-  fs.copy(fromPath, toPath, function(err) {
-    if (err) {
-      throw new Error(err);
-    }
-
-    done();
-  });
-}
 
 module.exports = generators.Base.extend({
   constructor: function() {
@@ -29,14 +18,6 @@ module.exports = generators.Base.extend({
       defaults: true,
       desc: 'Whether this should be a private NPM project'
     });
-  },
-
-  _copyDir: function(fromPath, toPath) {
-    copyDir(
-      this.templatePath(fromPath),
-      this.destinationPath(toPath),
-      this.async()
-    );
   },
 
   initializing: {
@@ -68,7 +49,10 @@ module.exports = generators.Base.extend({
 
   writing: {
     gulpfile: function() {
-      this._copyDir('gulpfile.js', 'gulpfile.js');
+      this.fs.copy(
+        this.templatePath('gulpfile.js'),
+        this.destinationPath('gulpfile.js')
+      );
     },
 
     packageJSON: function() {
@@ -144,7 +128,10 @@ module.exports = generators.Base.extend({
     },
 
     testing: function() {
-      this._copyDir('tests', 'tests');
+      this.fs.copy(
+        this.templatePath('tests'),
+        this.destinationPath('tests')
+      );
     },
 
     doc: function() {

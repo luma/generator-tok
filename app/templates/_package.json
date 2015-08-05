@@ -14,6 +14,8 @@
     "yargs": "^3.14.0"
   },
   "devDependencies": {
+    "browserify-resolutions": "^1.0.6",
+    "browserify": "^11.0.1",
     "del": "^1.2.0",
     "eslint": "^0.24.1",
     "eslint-config-opentok": "^0.0.1",
@@ -40,7 +42,28 @@
     "ink-docstrap": "git+ssh://git@github.com:leahciMic/docstrap.git#opentok",
     "istanbul": "^0.3.17",
     "jasmine-reporters": "^2.0.7",
+    "karma-browserify": "^4.2.1",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-coverage": "^0.4.2",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-ievms": "0.0.4",
+    "karma-jasmine-html-reporter": "^0.1.8",
+    "karma-jasmine": "^0.3.6",
+    "karma-junit-reporter": "^0.3.1",
+    "karma-nested-reporter": "^0.1.3",
+    "karma-nyan-reporter": "^0.2.1",
+    "karma-source-map-support": "^1.0.0",
+    "karma-tap-reporter": "git+ssh://git@github.com:leahciMic/karma-tap-reporter.git#master",
+    "karma": "^0.13.3",
+    "lodash.assign": "^3.2.0",
+    "lodash.map": "^3.1.4",
+    "lodash.omit": "^3.1.0",
+    "lodash.clone": "^3.0.3",
+    "merge-stream": "^0.1.8",
     "open": "0.0.5",
-    "through2": "^2.0.0"
+    "pretty-hrtime": "^1.0.0",
+    "through2": "^2.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.3"
   }
 }
