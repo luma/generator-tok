@@ -53,6 +53,11 @@ module.exports = generators.Base.extend({
         this.templatePath('gulpfile.js'),
         this.destinationPath('gulpfile.js')
       );
+
+      this.fs.copy(
+        this.templatePath('karma.conf.js'),
+        this.destinationPath('karma.conf.js')
+      );
     },
 
     packageJSON: function() {
@@ -72,6 +77,10 @@ module.exports = generators.Base.extend({
       this.fs.copy(
         this.templatePath('gitignore'),
         this.destinationPath('.gitignore'));
+
+      this.fs.copy(
+        this.templatePath('gitattributes'),
+        this.destinationPath('.gitattributes'));
     },
 
     editorConfig: function() {
