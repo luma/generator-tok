@@ -32,11 +32,14 @@ To see what tasks your new app has you can run `gulp help`.
 It will generate apps with the following:
 * create a new (local) git repo in the cwd
 * linting and code style checking via [ESLint](http://eslint.org/)
+* tasks via [Gulp](http://gulpjs.com/)
 * testing via [Jasmine](http://jasmine.github.io/)
 * code coverage via [Istanbul](https://gotwarlost.github.io/istanbul/)
 * code doc generation via [JSDoc](http://usejsdoc.org/)
+* Browser dependency management via [Browserify](http://browserify.org/)
+* Browser test running via [Karma](http://karma-runner.github.io)
 * a default *empty* LICENSE file
-* a default [.editorconfig](http://editorconfig.org) and .gitignore
+* a default [.editorconfig](http://editorconfig.org) and [.gitignore](https://help.github.com/articles/ignoring-files/)
 * a mostly empty app.js that uses [Bunyan](https://github.com/trentm/node-bunyan) for logging
 * a [package.json](https://docs.npmjs.com/files/package.json) file containing all the common essentials
 
@@ -49,5 +52,6 @@ It will generate apps with the following:
 
 ### TODOs
 
+* there should be a yeoman option for generating a library that targets browser, node, or both
 * adding the ability to generate a browser app (Browserify and karma support)
 * tests!
