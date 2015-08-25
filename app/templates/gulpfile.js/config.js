@@ -1,7 +1,7 @@
 'use strict';
 var path = require('path');
-var argv = require('yargs').argv;
-var karmaConfig = require('./karm.conf.js');
+var argv = require('yargs').default('browser', true).argv;
+var karmaConfig = require('../karma.conf.js');
 var pkg = require('../package.json');
 
 var dest = './build';
@@ -16,7 +16,11 @@ module.exports = {
     src: path.join(src, '../LICENSE')
   },
   tests: {
-    failTask: false
+    failTask: false,
+    forceKarmaExit: {
+      onSuccess: true,
+      onFailure: true
+    }
   },
   src: src,
   jsdoc: {

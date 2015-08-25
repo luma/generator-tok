@@ -14,6 +14,7 @@
     "yargs": "^3.14.0"
   },
   "devDependencies": {
+    "brfs": "^1.4.0",
     "browserify-resolutions": "^1.0.6",
     "browserify": "^11.0.1",
     "del": "^1.2.0",

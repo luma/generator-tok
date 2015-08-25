@@ -1,15 +1,33 @@
 // Karma configuration
 // http://karma-runner.github.io/0.12/config/configuration-file.html
-
 'use strict';
 
 var gutil = require('gulp-util');
-
-var argv = require('yargs')
-              .default('browser', true)
-              .argv;
-
+var argv = require('yargs').default('browser', true).argv;
+var jasmineConf = require('../tests/support/jasmine.json');
 var REPORT_DIR = './reports/';
+
+var testFiles = jasmineConf.spec_files.concat(jasmineConf.helpers);
+var testFilePath = testFiles.map(function(path) {
+  return 'tests/' + path;
+});
+
+//
+// Transforms:
+// ['app.js', 'foo.js']
+//
+// To:
+// {
+//   'app.js': ['browserify'],
+//   'foo.js': ['browserify']
+// }
+//
+function mapToPreprocessorOption(paths) {
+  return paths.reduce(function(pre, path) {
+    pre[path] = ['browserify'];
+    return pre;
+  }, {});
+}
 
 var karmaConfig = {
   // enable / disable watching file and executing tests whenever any file changes
@@ -22,27 +40,21 @@ var karmaConfig = {
   // as well as any additional frameworks (requirejs/chai/sinon/...)
   frameworks: [
     'jasmine',
-    'browserify'
+    'browserify',
   ],
 
   // list of files / patterns to load in the browser
   files: [
     'app.js',
     'src/**/*.js',
-    'tests/unit/**/*_spec.js',
-    'tests/helpers/**/*_helpers.js',
-  ],
+  ].concat(testFilePath),
 
   // list of files / patterns to exclude
   exclude: [
   ],
 
   // @TODO
-  preprocessors: {
-    'app.js': ['browserify'],
-    'tests/unit/**/*_spec.js': ['browserify'],
-    'tests/helpers/**/*_helpers.js': ['browserify']
-  },
+  preprocessors: mapToPreprocessorOption(['app.js'].concat(testFilePath)),
 
   // web server port
   port: 8080,
@@ -60,14 +72,18 @@ var karmaConfig = {
   customLaunchers: {
     ChromeFakeDevices: {
       base: 'Chrome',
-      flags: ['--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream']
+      flags: [
+        '--use-fake-ui-for-media-stream',
+        '--use-fake-device-for-media-stream'
+      ],
     },
+
     FirefoxFakeDevices: {
       base: 'Firefox',
       prefs: {
         'media.navigator.permission.disabled': true
-      }
-    }
+      },
+    },
   },
 
   // to avoid DISCONNECTED messages
@@ -104,7 +120,7 @@ var karmaConfig = {
 
   reporters: [
     'jasmine-diff',     // github.com/JamieMason/karma-nested-reporter
-    'nested'            // github.com/mradionov/karma-jasmine-diff-reporter
+    'nested',           // github.com/mradionov/karma-jasmine-diff-reporter
   ],
 
   // @TODO
@@ -113,19 +129,19 @@ var karmaConfig = {
       'brfs'            // inline static assets: npmjs.com/package/brfs
     ],
 
-    debug: true         // use source maps
+    debug: true,        // use source maps
   },
 
   // github.com/fumiakiy/karma-tap-reporter
   tapReporter: {
     outputFile: REPORT_DIR + 'results.tap',
-    stdout: false
+    stdout: false,
   },
 
   // github.com/karma-runner/karma-junit-reporter
   junitReporter: {
     outputDir: REPORT_DIR,      // where the results will be saved to
-    suite: ''                   // suite will become the package name attribute in xml testsuite element
+    suite: '',                  // suite will become the package name attribute in xml testsuite element
   },
 
   // github.com/mradionov/karma-jasmine-diff-reporter
@@ -144,17 +160,17 @@ var karmaConfig = {
   nyanReporter: {
     // increase the number of rainbow lines displayed
     // enforced min = 4, enforced max = terminal height - 1
-    numberOfRainbowLines: 4
+    numberOfRainbowLines: 4,
   },
 
   client: {
     // Optionally capture all console output and pipe it to the terminal.
-    captureConsole: false
+    captureConsole: false,
   },
 
   // level of logging
   // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG
-  logLevel: config.LOG_INFO,
+  // logLevel: LOG_ERROR,
 
   // URL root prevent conflicts with the site root
   // urlRoot: '_karma_'
@@ -190,5 +206,4 @@ var properties = Object.keys(karmaConfig).reduce(function(properties, key) {
 }, {});
 
 Object.defineProperties(karmaConfig, properties);
-
 module.exports = karmaConfig;
