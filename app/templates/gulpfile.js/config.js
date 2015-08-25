@@ -1,7 +1,7 @@
 'use strict';
 var path = require('path');
 var argv = require('yargs').argv;
-var karmaConfig = require('./karma_config');
+var karmaConfig = require('./karm.conf.js');
 var pkg = require('../package.json');
 
 var dest = './build';
