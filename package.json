@@ -19,8 +19,8 @@
     "yeoman-generator": "^0.20.2"
   },
   "devDependencies": {
+    "eslint-config-opentok": "0.0.1",
     "eslint": "^0.24.1",
-    "eslint-config-opentok": "^0.0.1",
     "gulp": "^3.9.0",
     "gulp-clone": "^1.0.0",
     "gulp-develop-server": "^0.4.3",
