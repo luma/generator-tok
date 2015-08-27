@@ -1,7 +1,6 @@
 'use strict';
 var path = require('path');
 var argv = require('yargs').default('browser', true).argv;
-var karmaConfig = require('../karma.conf.js');
 var pkg = require('../package.json');
 
 var dest = './build';
@@ -36,7 +35,6 @@ module.exports = {
       'app.js'
     ]
   },
-  karma: karmaConfig,
   browserify: {
     // A separate bundle will be generated for each
     // bundle config in the list below
