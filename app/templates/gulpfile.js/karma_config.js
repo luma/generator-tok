@@ -43,7 +43,7 @@ var karmaConfig = {
   // list of files / patterns to load in the browser
   files: [
     'app.js',
-    'src/**/*.js',
+    'src/js/**/*.js',
   ].concat(testFiles),
 
   // list of files / patterns to exclude

@@ -34,7 +34,7 @@ gulp.task('test-node', function(cb) {
   ];
 
   if (argv.coverage === true) {
-    gulp.src(['src/**/*.js', 'app.js'])
+    gulp.src(['src/js/**/*.js', 'app.js'])
       .pipe(istanbul()) // Covering files
       .pipe(istanbul.hookRequire()) // Force `require` to return covered files
       .on('finish', function() {
