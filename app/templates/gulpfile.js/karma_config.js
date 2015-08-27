@@ -8,9 +8,6 @@ var jasmineConf = require('../tests/support/jasmine.json');
 var REPORT_DIR = './reports/';
 
 var testFiles = jasmineConf.spec_files.concat(jasmineConf.helpers);
-var testFilePath = testFiles.map(function(path) {
-  return 'tests/' + path;
-});
 
 //
 // Transforms:
@@ -34,7 +31,7 @@ var karmaConfig = {
   autoWatch: true,
 
   // base path, that will be used to resolve files and exclude
-  basePath: '../',
+  // basePath: './',
 
   // testing framework to use (jasmine/mocha/qunit/...)
   // as well as any additional frameworks (requirejs/chai/sinon/...)
@@ -47,14 +44,14 @@ var karmaConfig = {
   files: [
     'app.js',
     'src/**/*.js',
-  ].concat(testFilePath),
+  ].concat(testFiles),
 
   // list of files / patterns to exclude
   exclude: [
   ],
 
   // @TODO
-  preprocessors: mapToPreprocessorOption(['app.js'].concat(testFilePath)),
+  preprocessors: mapToPreprocessorOption(['app.js'].concat(testFiles)),
 
   // web server port
   port: 8080,
