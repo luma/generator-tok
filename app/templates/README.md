@@ -31,5 +31,6 @@
 * **gulp help**: get an overview of what tasks are available
 * **gulp test**: run the tests
 * **gulp doc**: generate the docs. They will be placed in the `docs/` folder
+* **gulp todo**: display all todos and fixmes in the project. It also writes them to TODO.md and todo.json
 
 **@TODO: List the other tasks specific to this module**

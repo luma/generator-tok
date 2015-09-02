@@ -7,6 +7,7 @@ var taskDescriptions = {
   clean: 'removes all build artifacts',
   test: 'runs the tests and (optionally) generates coverage reports',
   lint: 'lints the source',
+  todo: 'display all todos and fixmes in the project. It also writes them to TODO.md and todo.json',
   doc: 'generate docs for the project source',
   help: 'displays this help text'
 };
