@@ -19,8 +19,8 @@
     "yeoman-generator": "^0.20.2"
   },
   "devDependencies": {
-    "eslint-config-opentok": "0.0.1",
     "eslint": "^0.24.1",
+    "eslint-config-opentok": "0.0.1",
     "gulp": "^3.9.0",
     "gulp-clone": "^1.0.0",
     "gulp-develop-server": "^0.4.3",
@@ -29,7 +29,6 @@
     "gulp-gitinfo": "0.0.5",
     "gulp-istanbul": "^0.10.0",
     "gulp-jasmine": "^2.0.1",
-    "gulp-jsdoc": "^0.1.4",
     "gulp-jshint": "^1.11.1",
     "gulp-notify": "^2.2.0",
     "gulp-rename": "^1.2.2",
@@ -43,6 +42,7 @@
     "gulp-watch": "^4.2.4",
     "istanbul": "^0.3.17",
     "jasmine-reporters": "^2.0.7",
+    "jsdoc": "^3.3.2",
     "through2": "^2.0.0"
   }
 }
