@@ -37,12 +37,12 @@ var karmaConfig = {
   // as well as any additional frameworks (requirejs/chai/sinon/...)
   frameworks: [
     'jasmine',
-    'browserify',
+    'browserify'
   ],
 
   // list of files / patterns to load in the browser
   files: [
-    'src/**/*.js',
+    'src/**/*.js'
   ].concat(testFiles),
 
   // list of files / patterns to exclude
@@ -71,15 +71,15 @@ var karmaConfig = {
       flags: [
         '--use-fake-ui-for-media-stream',
         '--use-fake-device-for-media-stream'
-      ],
+      ]
     },
 
     FirefoxFakeDevices: {
       base: 'Firefox',
       prefs: {
         'media.navigator.permission.disabled': true
-      },
-    },
+      }
+    }
   },
 
   // to avoid DISCONNECTED messages
@@ -101,7 +101,7 @@ var karmaConfig = {
     'karma-nyan-reporter',
     'karma-jasmine-diff-reporter',
     'karma-source-map-support',
-    'karma-tap-reporter',
+    'karma-tap-reporter'
   ],
 
   // Continuous Integration mode
@@ -116,7 +116,7 @@ var karmaConfig = {
 
   reporters: [
     'jasmine-diff',     // github.com/JamieMason/karma-nested-reporter
-    'nested',           // github.com/mradionov/karma-jasmine-diff-reporter
+    'nested'            // github.com/mradionov/karma-jasmine-diff-reporter
   ],
 
   // @TODO
@@ -126,19 +126,19 @@ var karmaConfig = {
       'brfs'            // inline static assets: npmjs.com/package/brfs
     ],
 
-    debug: true,        // use source maps
+    debug: true         // use source maps
   },
 
   // github.com/fumiakiy/karma-tap-reporter
   tapReporter: {
     outputFile: REPORT_DIR + 'results.tap',
-    stdout: false,
+    stdout: false
   },
 
   // github.com/karma-runner/karma-junit-reporter
   junitReporter: {
     outputDir: REPORT_DIR,      // where the results will be saved to
-    suite: '',                  // suite will become the package name attribute in xml testsuite element
+    suite: ''                   // suite will become the package name attribute in xml testsuite element
   },
 
   // github.com/mradionov/karma-jasmine-diff-reporter
@@ -157,13 +157,13 @@ var karmaConfig = {
   nyanReporter: {
     // increase the number of rainbow lines displayed
     // enforced min = 4, enforced max = terminal height - 1
-    numberOfRainbowLines: 4,
+    numberOfRainbowLines: 4
   },
 
   client: {
     // Optionally capture all console output and pipe it to the terminal.
-    captureConsole: false,
-  },
+    captureConsole: false
+  }
 
   // level of logging
   // possible values: LOG_DISABLE || LOG_ERROR || LOG_WARN || LOG_INFO || LOG_DEBUG

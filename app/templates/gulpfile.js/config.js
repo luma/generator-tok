@@ -31,7 +31,7 @@ module.exports = {
   },
   lint: {
     src: [
-      path.join('..', src, '/**/*.js'),
+      path.join('..', src, '/**/*.js')
     ]
   },
   browserify: {
