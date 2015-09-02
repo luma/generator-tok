@@ -48,7 +48,6 @@ It will generate apps with the following:
 
 ### What it doesn't do (yet)
 
-* anything involving Karma or Browserify, so it's not browser friendly yet
 * it doesn't have strong guidelines for how you build your final package, except that you should use Gulp as your task system
 
 
