@@ -121,8 +121,8 @@ module.exports = generators.Base.extend({
 
     app: function() {
       this.fs.copyTpl(
-        this.templatePath('app.js'),
-        this.destinationPath('app.js'),
+        this.templatePath('index.js'),
+        this.destinationPath('index.js'),
         {
           appName: this.appname
         }
@@ -154,7 +154,7 @@ module.exports = generators.Base.extend({
     },
 
     misc: function() {
-      mkdirp('src/js');
+      mkdirp('src');
     }
   },
 

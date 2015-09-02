@@ -11,11 +11,11 @@ var testFiles = jasmineConf.spec_files.concat(jasmineConf.helpers);
 
 //
 // Transforms:
-// ['app.js', 'foo.js']
+// ['index.js', 'foo.js']
 //
 // To:
 // {
-//   'app.js': ['browserify'],
+//   'index.js': ['browserify'],
 //   'foo.js': ['browserify']
 // }
 //
@@ -42,16 +42,15 @@ var karmaConfig = {
 
   // list of files / patterns to load in the browser
   files: [
-    'app.js',
-    'src/js/**/*.js',
+    'src/**/*.js',
   ].concat(testFiles),
 
   // list of files / patterns to exclude
   exclude: [
   ],
 
-  // @TODO
-  preprocessors: mapToPreprocessorOption(['app.js'].concat(testFiles)),
+  // Map the source and test paths to the standard preprocessors
+  preprocessors: mapToPreprocessorOption(['src/**/*.js'].concat(testFiles)),
 
   // web server port
   port: 8080,
@@ -123,6 +122,7 @@ var karmaConfig = {
   // @TODO
   browserify: {
     transform: [
+      'babelify',
       'brfs'            // inline static assets: npmjs.com/package/brfs
     ],
 

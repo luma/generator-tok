@@ -3,8 +3,8 @@ var path = require('path');
 var argv = require('yargs').default('browser', true).argv;
 var pkg = require('../package.json');
 
-var dest = './build';
-var src = './src';
+var dest = 'build/';
+var src = 'src/';
 
 var ENVIRONMENT = argv.env || process.env.env || 'development';
 var APP_NAME = pkg.name;
@@ -12,7 +12,7 @@ var APP_NAME = pkg.name;
 module.exports = {
   environment: ENVIRONMENT,
   license: {
-    src: path.join(src, '../LICENSE')
+    src: '../LICENSE'
   },
   tests: {
     failTask: false,
@@ -23,16 +23,15 @@ module.exports = {
   },
   src: src,
   jsdoc: {
-    src: path.join(src, 'js/**/*.js'),
-    readme: path.join(src, '../README.md'),
-    dest: './docs/documentation/',
+    src: src,
+    readme: './README.md',
+    dest: './docs',
     template: './node_modules/ink-docstrap/template',
-    configFile: 'docs/config.json'
+    configFile: './gulpfile.js/doc_config.js'
   },
   lint: {
     src: [
-      path.join(src, 'js/**/*.js'),
-      'app.js'
+      path.join('..', src, '/**/*.js'),
     ]
   },
   browserify: {
@@ -42,7 +41,7 @@ module.exports = {
     watch: false, // should we use watchify
     bundleConfigs: [
       {
-        entries: 'app.js',
+        entries: 'index.js',
         dest: dest,
         outputName: APP_NAME + '.js'
       }

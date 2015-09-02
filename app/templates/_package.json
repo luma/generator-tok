@@ -6,7 +6,9 @@
   },
   "license" : "SEE LICENSE IN LICENSE",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "compile": "gulp transpile",
+    "prepublish": "npm run compile"
   },
   "dependencies": {
     "bunyan": "^1.4.0",
