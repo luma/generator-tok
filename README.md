@@ -40,7 +40,7 @@ It will generate apps with the following:
 * Browser test running via [Karma](http://karma-runner.github.io)
 * a default *empty* LICENSE file
 * a default [.editorconfig](http://editorconfig.org) and [.gitignore](https://help.github.com/articles/ignoring-files/)
-* a mostly empty app.js that uses [Bunyan](https://github.com/trentm/node-bunyan) for logging
+* a mostly empty index.js that uses [Bunyan](https://github.com/trentm/node-bunyan) for logging
 * a [package.json](https://docs.npmjs.com/files/package.json) file containing all the common essentials
 
 
