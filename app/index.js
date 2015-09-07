@@ -143,16 +143,6 @@ module.exports = generators.Base.extend({
       );
     },
 
-    doc: function() {
-      this.fs.copyTpl(
-        this.templatePath('docs/config.json'),
-        this.destinationPath('docs/config.json'),
-        {
-          appName: this.appname
-        }
-      );
-    },
-
     misc: function() {
       mkdirp('src');
     }
