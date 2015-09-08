@@ -90,6 +90,13 @@ module.exports = generators.Base.extend({
       );
     },
 
+    npmIgnore: function() {
+      this.fs.copy(
+        this.templatePath('npmignore'),
+        this.destinationPath('.npmignore')
+      );
+    },
+
     linting: function() {
       this.fs.copy(
         this.templatePath('eslintrc'),
