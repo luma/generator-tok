@@ -6,8 +6,7 @@
     "browser": true,
     "node": true,
     "es6": true,
-    "amd": true,
-    "jest": true
+    "amd": true
   },
   "rules": {
     "no-eq-null": 0,

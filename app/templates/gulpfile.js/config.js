@@ -3,8 +3,8 @@ var path = require('path');
 var argv = require('yargs').default('browser', true).argv;
 var pkg = require('../package.json');
 
-var dest = 'build/';
-var src = 'src/';
+var dest = 'build';
+var src = 'src';
 
 var ENVIRONMENT = argv.env || process.env.env || 'development';
 var APP_NAME = pkg.name;
@@ -31,7 +31,7 @@ module.exports = {
   },
   lint: {
     src: [
-      path.join('..', src, '/**/*.js')
+      path.join(src, '**', '*.js'),
     ]
   },
   browserify: {
@@ -50,7 +50,7 @@ module.exports = {
   // @TODO what 'production' means in this context is not obvious.
   // I.e. why are no other environments defined?
   production: {
-    jsSrc: path.join(dest, '/**/*.js'),
+    jsSrc: path.join(dest, '**', '*.js'),
     dest: dest
   }
 };
