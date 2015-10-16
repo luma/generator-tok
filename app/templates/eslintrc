@@ -8,6 +8,9 @@
     "es6": true,
     "amd": true
   },
+  "ecmaFeatures": {
+    "modules": true
+  },
   "rules": {
     "no-eq-null": 0,
     "vars-on-top": 0,
@@ -15,13 +18,14 @@
     "no-alert": 0,
     "spaced-comment": 0,
     "valid-jsdoc": 0,
-
+    "dot-notation": [2, { "allowKeywords": true }],
     "no-use-before-define": 0,
     "new-cap": 0,
     "no-param-reassign": 0,
     "consistent-this": 0,
-
-    "no-warning-comments": 0
+    "no-warning-comments": 0,
+    "comma-dangle": [1, "always-multiline"],
+    "strict": [0, "global"]
   },
   "plugins": [
     "require-path-exists"
