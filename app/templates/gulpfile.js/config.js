@@ -5,6 +5,7 @@ var pkg = require('../package.json');
 
 var dest = 'build';
 var src = 'src';
+var tests = 'tests';
 
 var ENVIRONMENT = argv.env || process.env.env || 'development';
 var APP_NAME = pkg.name;
@@ -32,6 +33,7 @@ module.exports = {
   lint: {
     src: [
       path.join(src, '**', '*.js'),
+      path.join(tests, '**', '*.js'),
     ]
   },
   browserify: {
