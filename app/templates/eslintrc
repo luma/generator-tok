@@ -18,7 +18,7 @@
     "no-alert": 0,
     "spaced-comment": 0,
     "valid-jsdoc": 0,
-    "dot-notation": [2, { "allowKeywords": true }],
+    "dot-notation": [1, { "allowKeywords": true, "allowPattern": "" }],
     "no-use-before-define": 0,
     "new-cap": 0,
     "no-param-reassign": 0,
