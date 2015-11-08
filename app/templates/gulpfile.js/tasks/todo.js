@@ -8,7 +8,7 @@ var srcPath = config.src + '**/*.js';
 var testsPath = jasmineConf.spec_files.concat(jasmineConf.helpers).map(function(path) {
   return path.replace('tests/', './tests**/');
 });
-var todoSearchPaths = testsPath.concat(srcPath);
+var todoSearchPaths = [srcPath].concat(testsPath);
 var through2 = require('through2');
 
 // output once in markdown and then output a json file as well
