@@ -1,4 +1,4 @@
-require("babel/polyfill");
+require("babelify/polyfill");
 
 
 // @TODO export your public API
