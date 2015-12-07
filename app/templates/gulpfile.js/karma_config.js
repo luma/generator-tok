@@ -4,6 +4,7 @@
 
 var gutil = require('gulp-util');
 var argv = require('yargs').default('browser', true).argv;
+var ip = require('ip');
 var jasmineConf = require('../tests/support/jasmine.json');
 var REPORT_DIR = './reports/';
 
@@ -27,6 +28,8 @@ function mapToPreprocessorOption(paths) {
 }
 
 var karmaConfig = {
+  hostname: ip.address(),
+
   // enable / disable watching file and executing tests whenever any file changes
   autoWatch: true,
 
@@ -119,7 +122,6 @@ var karmaConfig = {
     'nested'            // github.com/mradionov/karma-jasmine-diff-reporter
   ],
 
-  // @TODO
   browserify: {
     transform: [
       'babelify',

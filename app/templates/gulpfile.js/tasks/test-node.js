@@ -6,7 +6,7 @@ var argv = require('yargs').argv;
 var reporters = require('jasmine-reporters');
 var jasmineConf = require('../../tests/support/jasmine.json');
 
-require('babel/register')({ stage: 1 });
+require('babel-core/register')({stage: 1});
 
 var reportsDir = './reports';
 
