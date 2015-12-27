@@ -74,6 +74,13 @@ module.exports = generators.Base.extend({
       );
     },
 
+    constributing: function() {
+      this.fs.copy(
+        this.templatePath('CONTRIBUTING.md'),
+        this.destinationPath('CONTRIBUTING.md')
+      );
+    },
+
     packageJSON: function() {
       this.log('Generating a', this.options['private'] ? 'private' : 'public', 'NPM module');
 
