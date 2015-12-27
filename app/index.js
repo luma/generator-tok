@@ -23,11 +23,16 @@ module.exports = generators.Base.extend({
       defaults: true,
       desc: 'Whether the generator should initialise a Git repo for this project'
     });
+
+    // Workaround a type coercion bug: https://github.com/yeoman/generator/issues/813
+    this.options.git = this.options.git === true || this.options.git === 'true';
+    this.options['private'] = this.options['private'] === true || this.options['private'] === 'true';
   },
 
   initializing: {
     git: function() {
-      if (this.options['git'] === false) {
+      this.log('OPTIONS\n' + JSON.stringify(this.options, null, 2));
+      if (this.options.git === false) {
         return;
       }
 
@@ -83,7 +88,7 @@ module.exports = generators.Base.extend({
     },
 
     git: function() {
-      if (this.options['git'] === false) {
+      if (this.options.git === false) {
         return;
       }
 
