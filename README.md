@@ -2,6 +2,15 @@
 
 This is a Yeoman generator for apps that follow the Tokbox style guidelines and best practises.
 
+### Prerequisites
+
+This generator is built using [Yeoman](http://yeoman.io/), you'll need to install that first.
+
+```
+npm install -g yo
+```
+
+
 ### Installation
 
 Eventually I will push this to npm. But for you can install it using:
@@ -23,6 +32,8 @@ yo tok appName
 ```
 
 This will generate a private module by default. Use `yo tok appName --private=false` to generate a public project.
+
+By default it will also initialise a local Git repo for you. If you don't want one, or you wish to set it up yourself, then use the `git` flag (e.g. `yo tok appName --git=false`).
 
 To see what tasks your new app has you can run `gulp help`.
 

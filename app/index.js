@@ -11,17 +11,26 @@ module.exports = generators.Base.extend({
     this.argument('appname', { type: String, required: true });
     this.appName = this.appName || 'Untitled';
 
-
     // add some flags
     this.option('private', {
       type: Boolean,
       defaults: true,
       desc: 'Whether this should be a private NPM project'
     });
+
+    this.option('git', {
+      type: Boolean,
+      defaults: true,
+      desc: 'Whether the generator should initialise a Git repo for this project'
+    });
   },
 
   initializing: {
     git: function() {
+      if (this.options['git'] === false) {
+        return;
+      }
+
       var done = this.async();
 
       this.log('\n\nInitializing Git repository. If this fails, try running ' +
@@ -74,6 +83,10 @@ module.exports = generators.Base.extend({
     },
 
     git: function() {
+      if (this.options['git'] === false) {
+        return;
+      }
+
       this.fs.copy(
         this.templatePath('gitignore'),
         this.destinationPath('.gitignore'));
