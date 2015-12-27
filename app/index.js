@@ -31,7 +31,6 @@ module.exports = generators.Base.extend({
 
   initializing: {
     git: function() {
-      this.log('OPTIONS\n' + JSON.stringify(this.options, null, 2));
       if (this.options.git === false) {
         return;
       }
