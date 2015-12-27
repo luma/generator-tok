@@ -4,6 +4,8 @@
     "tests/unit/**/*_spec.js"
   ],
   "helpers": [
-    "tests/helpers/**/*_helpers.js"
+    "node_modules/babelify/polyfill.js",
+    "tests/support/helpers/**/*_helpers.js",
+    "tests/support/mocks/**/*_mock.js"
   ]
 }
