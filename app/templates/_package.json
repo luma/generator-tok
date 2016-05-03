@@ -2,9 +2,11 @@
   "name": "<%= appName %>",
   "version": "0.0.1",
   "private": <%= isPrivateModule %>,
+<% if (isNodeModule) { %>
   "engines": {
     "node": ">=0.12.0"
   },
+<% } %>
   "license" : "SEE LICENSE IN LICENSE",
   "scripts": {
     "test": "gulp test",
@@ -13,9 +15,11 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+<% if (isNodeModule) { %>
     "bunyan": "^1.4.0",
     "require-dir": "^0.3.0",
     "yargs": "^3.14.0"
+<% } %>
   },
   "devDependencies": {
     "babel-core": "^5.8.21",

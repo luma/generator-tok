@@ -18,6 +18,12 @@ module.exports = generators.Base.extend({
       desc: 'Whether this should be a private NPM project'
     });
 
+    this.option('node', {
+      type: Boolean,
+      defaults: true,
+      desc: 'Whether this is a node project (index.js, buynam) or pure client library'
+    });
+
     this.option('git', {
       type: Boolean,
       defaults: true,
@@ -27,6 +33,7 @@ module.exports = generators.Base.extend({
     // Workaround a type coercion bug: https://github.com/yeoman/generator/issues/813
     this.options.git = this.options.git === true || this.options.git === 'true';
     this.options['private'] = this.options['private'] === true || this.options['private'] === 'true';
+    this.options['node'] = this.options['node'] === true || this.options['node'] === 'true';
   },
 
   initializing: {
@@ -88,6 +95,7 @@ module.exports = generators.Base.extend({
         this.destinationPath('package.json'),
         {
           appName: this.appname,
+          isNodeModule: this.options['node'],
           isPrivateModule: this.options['private']
         }
       );
@@ -151,6 +159,8 @@ module.exports = generators.Base.extend({
     },
 
     app: function() {
+      if (!this.options['node']) return;
+
       this.fs.copyTpl(
         this.templatePath('index.js'),
         this.destinationPath('index.js'),
